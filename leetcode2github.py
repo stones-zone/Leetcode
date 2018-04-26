@@ -492,11 +492,11 @@ class Leetcode:
         """Write Readme to current folder"""
         languages_readme = ','.join([x.capitalize() for x in self.languages])
         md = '''# :pencil2: Leetcode Solutions with {language}
-                Update time:  {tm}
-                I have solved **{num_solved}   /   {num_total}** problems
-                (Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)
-                | # | Title | Source Code | Article | Difficulty |
-                |:---:|:---:|:---:|:---:|:---:|'''.format(
+Update time:  {tm}
+I have solved **{num_solved}   /   {num_total}** problems
+(Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)
+| # | Title | Source Code | Article | Difficulty |
+|:---:|:---:|:---:|:---:|:---:|'''.format(
             language=languages_readme,
             tm=time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())),
             num_solved=self.num_solved,

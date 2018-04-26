@@ -1,35 +1,24 @@
 # -*- coding:utf-8 -*-
 
 
-#
 # Given an input string, reverse the string word by word.
 #
+# Example:  
 #
 #
-# For example,
-# Given s = "the sky is blue",
-# return "blue is sky the".
+# Input: "the sky is blue",
+# Output: "blue is sky the".
 #
 #
-#
-# Update (2015-02-12):
-# For C programmers: Try to solve it in-place in O(1) space.
+# Notes:
 #
 #
-# click to show clarification.
-#
-# Clarification:
-#
-#
-#
-# What constitutes a word?
-# A sequence of non-space characters constitutes a word.
-# Could the input string contain leading or trailing spaces?
-# Yes. However, your reversed string should not contain leading or trailing spaces.
-# How about multiple spaces between two words?
-# Reduce them to a single space in the reversed string.
+# 	A word is defined as a sequence of non-space characters.
+# 	Input string may contain leading or trailing spaces. However, your reversed string should not contain leading or trailing spaces.
+# 	You need to reduce multiple spaces between two words to a single space in the reversed string.
 #
 #
+# Follow up: For C programmers, try to solve it in-place in O(1) space.
 #
 
 

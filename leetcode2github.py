@@ -470,7 +470,7 @@ class Leetcode:
         quiz = self._find_item_by_quiz_id(qid)
         if quiz:
             self._download_code_by_quiz(quiz)
-            
+
     def download(self):
         """ download all solutions with single thread """
         ac_items = [i for i in self.items if i.is_pass]
@@ -492,16 +492,15 @@ class Leetcode:
         """Write Readme to current folder"""
         languages_readme = ','.join([x.capitalize() for x in self.languages])
         md = '''# :pencil2: Leetcode Solutions with {language}
-Update time:  {tm}
-(Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)
-| # | Title | Source Code | Article | Difficulty |
-|:---:|:---:|:---:|:---:|:---:|'''.format(
+                Update time:  {tm}
+                I have solved **{num_solved}   /   {num_total}** problems
+                (Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)
+                | # | Title | Source Code | Article | Difficulty |
+                |:---:|:---:|:---:|:---:|:---:|'''.format(
             language=languages_readme,
             tm=time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())),
             num_solved=self.num_solved,
             num_total=self.num_total,
-            num_lock=self.num_lock,
-            repo=CONFIG['repo'],
         )
         md += '\n'
         for item in self.items:
@@ -561,6 +560,7 @@ Update time:  {tm}
 
 
 def do_job(leetcode):
+    '''
     leetcode.load()
     print('Leetcode load self info')
     if len(sys.argv) == 1:
@@ -575,6 +575,7 @@ def do_job(leetcode):
             print('begin leetcode by id: {id}'.format(id=qid))
             leetcode.download_by_id(int(qid))
     print('Leetcode finish dowload')
+    '''
     leetcode.write_readme()
     print('Leetcode finish write readme')
     leetcode.push_to_github()

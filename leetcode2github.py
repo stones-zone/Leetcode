@@ -14,6 +14,7 @@ import datetime
 import re
 import sys
 import html
+import markdown
 
 from selenium import webdriver
 from collections import namedtuple, OrderedDict
@@ -477,7 +478,7 @@ class Leetcode:
         for quiz in ac_items:
             time.sleep(1)
             self._download_code_by_quiz(quiz)
-    '''
+
     def download_with_thread_pool(self):
         """ download all solutions with multi thread """
         ac_items = [i for i in self.items if i.is_pass]
@@ -487,14 +488,16 @@ class Leetcode:
         for quiz in ac_items:
             pool.submit(self._download_code_by_quiz, quiz)
         pool.shutdown(wait=True)
-    '''
+
     def write_readme(self):
         """Write Readme to current folder"""
         languages_readme = ','.join([x.capitalize() for x in self.languages])
         md = '''# :pencil2: Leetcode Solutions with {language}
 Update time:  {tm}
+
 I have solved **{num_solved}   /   {num_total}** problems
 (Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)
+
 | # | Title | Source Code | Article | Difficulty |
 |:---:|:---:|:---:|:---:|:---:|'''.format(
             language=languages_readme,
@@ -560,6 +563,7 @@ I have solved **{num_solved}   /   {num_total}** problems
 
 
 def do_job(leetcode):
+    '''
     leetcode.load()
     print('Leetcode load self info')
     if len(sys.argv) == 1:
@@ -574,6 +578,7 @@ def do_job(leetcode):
             print('begin leetcode by id: {id}'.format(id=qid))
             leetcode.download_by_id(int(qid))
     print('Leetcode finish dowload')
+    '''
     leetcode.write_readme()
     print('Leetcode finish write readme')
     leetcode.push_to_github()

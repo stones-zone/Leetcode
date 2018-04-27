@@ -563,7 +563,6 @@ I have solved **{num_solved}   /   {num_total}** problems
 
 
 def do_job(leetcode):
-    '''
     leetcode.load()
     print('Leetcode load self info')
     if len(sys.argv) == 1:
@@ -578,7 +577,6 @@ def do_job(leetcode):
             print('begin leetcode by id: {id}'.format(id=qid))
             leetcode.download_by_id(int(qid))
     print('Leetcode finish dowload')
-    '''
     leetcode.write_readme()
     print('Leetcode finish write readme')
     leetcode.push_to_github()

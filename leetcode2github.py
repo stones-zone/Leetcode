@@ -20,6 +20,7 @@ from selenium import webdriver
 from collections import namedtuple, OrderedDict
 
 HOME = os.getcwd()
+HOME = HOME + '/Python'
 CONFIG_FILE = os.path.join(HOME, 'config.cfg')
 COOKIE_PATH = 'cookies.json'
 BASE_URL = 'https://leetcode.com'

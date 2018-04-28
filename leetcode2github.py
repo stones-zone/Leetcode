@@ -20,7 +20,6 @@ from selenium import webdriver
 from collections import namedtuple, OrderedDict
 
 HOME = os.getcwd()
-HOME = HOME + '/Python'
 CONFIG_FILE = os.path.join(HOME, 'config.cfg')
 COOKIE_PATH = 'cookies.json'
 BASE_URL = 'https://leetcode.com'
@@ -442,7 +441,7 @@ class Leetcode:
             )
             return
 
-        dirname = '{id}-{title}'.format(id=str(qid).zfill(3), title=qtitle)
+        dirname = 'Python/{id}-{title}'.format(id=str(qid).zfill(3), title=qtitle)
         print('begin download ' + dirname)
         check_and_make_dir(dirname)
         path = os.path.join(HOME, dirname)
@@ -499,7 +498,7 @@ Update time:  {tm}
 I have solved **{num_solved}   /   {num_total}** problems
 (Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)
 
-| # | Title | Source Code | Article | Difficulty |
+| # | Title | Solutions | Article | Difficulty |
 |:---:|:---:|:---:|:---:|:---:|'''.format(
             language=languages_readme,
             tm=time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())),
@@ -517,7 +516,7 @@ I have solved **{num_solved}   /   {num_total}** problems
                 language = ':lock:'
             else:
                 if item.solutions:
-                    dirname = '{id}-{title}'.format(
+                    dirname = 'Python/{id}-{title}'.format(
                         id=str(item.question_id).zfill(3),
                         title=item.question__title_slug,
                     )
